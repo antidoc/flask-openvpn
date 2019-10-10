@@ -4,10 +4,15 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <ul>
-        {% for user in users %}
-        <li>{{ user }}</li>
+    <table>
+        <caption>Users list</caption>
+        {% for user in user_table %}
+        <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[1] }}</td>
+            <td><a href="{{ url_for("static", filename="certs/" + user[1] + ".ovpn") }}">Download</a></td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </body>
 </html>
